@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Todo List'),
+            title: const Text('Todo Listinggg'),
             actions: [
               // Popup menu to filter tasks (All, Completed, Pending)
               PopupMenuButton<TaskFilter>(
