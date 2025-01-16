@@ -11,27 +11,30 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TaskBloc, TaskState>(
+      // Builds the UI based on the current TaskBloc state
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: const Text('Todo List'),
             actions: [
+              // Popup menu to filter tasks (All, Completed, Pending)
               PopupMenuButton<TaskFilter>(
                 onSelected: (filter) {
+                  // Dispatch FilterTasks event based on user selection
                   context.read<TaskBloc>().add(FilterTasks(filter: filter));
                 },
                 itemBuilder: (context) => [
                   const PopupMenuItem(
                     value: TaskFilter.all,
-                    child: Text('All'),
+                    child: Text('All'), // Option to show all tasks
                   ),
                   const PopupMenuItem(
                     value: TaskFilter.completed,
-                    child: Text('Completed'),
+                    child: Text('Completed'), // Option to show completed tasks
                   ),
                   const PopupMenuItem(
                     value: TaskFilter.pending,
-                    child: Text('Pending'),
+                    child: Text('Pending'), // Option to show pending tasks
                   ),
                 ],
               ),
@@ -39,7 +42,8 @@ class HomeScreen extends StatelessWidget {
           ),
           body: _buildBody(context, state),
           floatingActionButton: FloatingActionButton(
-            onPressed: () => _showAddDialog(context),
+            onPressed: () =>
+                _showAddDialog(context), // Show dialog to add a new task
             child: const Icon(Icons.add),
           ),
         );
@@ -61,6 +65,7 @@ class HomeScreen extends StatelessWidget {
         itemCount: state.filteredTasks.length,
         itemBuilder: (context, index) {
           final task = state.filteredTasks[index];
+          // Each task is wrapped in a Dismissible widget for swipe-to-delete functionality
           return Dismissible(
             key: Key(task.id),
             background: Container(
@@ -83,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                       task.isCompleted ? TextDecoration.lineThrough : null,
                 ),
               ),
-              subtitle: Text(task.description),
+              subtitle: Text(task.description), // Task description
               leading: Checkbox(
                 value: task.isCompleted,
                 onChanged: (_) {
@@ -94,6 +99,7 @@ class HomeScreen extends StatelessWidget {
                       );
                 },
               ),
+              // Delete button to remove the task
               trailing: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.red),
                 onPressed: () {
