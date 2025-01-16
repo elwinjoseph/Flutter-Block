@@ -30,6 +30,7 @@ Before you begin, ensure you have the following installed:
 ## Getting Started
 
 Follow these steps to set up and run the application:
+<<<<<<< HEAD
 
 ### 1. Clone the Repository
 
@@ -143,8 +144,121 @@ Contributions are welcome! Feel free to fork the repository, make changes, and s
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+=======
+>>>>>>> 66a90604ea62360326add39b4a92b078b726e99d
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/todo-list-app.git
+cd todo-list-app
+```
+
+### 2. Install Dependencies
+
+Run the following command to install the required dependencies:
+
+```bash
+flutter pub get
+```
+
+### 3. Run the Application
+
+To launch the application on an emulator or connected device, use:
+
+```bash
+flutter run
+```
+
+> Note: Ensure that a device (emulator or physical) is connected and properly set up.
+
+---
+
+## Project Structure
+
+The project uses the BLoC pattern for state management. Here's an overview of the project structure:
+
+```
+lib/
+├── main.dart           # Application entry point
+├── blocs/              # BLoC logic for managing tasks
+│   ├── bloc.dart
+│   ├── event.dart
+│   └── state.dart
+├── models/             # Data models
+│   └── task.dart
+├── repository/
+│   └── database.dart
+|   └── task_repository.dart
+├── screens/            # UI screens
+│   └── home.dart
+```
+
+---
+
+## How to Use
+
+### Adding a Task
+
+1. Tap the `+` button in the bottom right corner.
+2. Enter the task title and description.
+3. Press **Add** to save the task.
+
+### Editing a Task
+
+1. Tap on an existing task in the list.
+2. Modify the title or description in the dialog.
+3. Press **Save** to update the task.
+
+### Deleting a Task
+
+- Swipe a task to the left or tap the delete button to remove it.
+
+### Filtering Tasks
+
+1. Tap the menu icon in the top right corner.
+2. Select one of the options: All, Completed, or Pending.
+
+---
+
+## Testing
+
+To run the tests for this application, use:
+
+```bash
+flutter test
+```
+
+Ensure you have created appropriate test cases under the `test/` directory.
+
+---
+
+## Troubleshooting
+
+1. **Error: Device not detected**
+
+   - Ensure that you have a device/emulator connected.
+   - Use `flutter devices` to check available devices.
+
+2. **Packages not resolving**
+
+   - Run `flutter pub get` to resolve dependencies.
+
+3. **Slow build times**
+
+   - Run `flutter clean` to clean the build directory and try again.
+
+---
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository, make changes, and submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
