@@ -94,6 +94,15 @@ class HomeScreen extends StatelessWidget {
                       );
                 },
               ),
+              trailing: IconButton(
+                icon: const Icon(Icons.delete, color: Colors.red),
+                onPressed: () {
+                  context.read<TaskBloc>().add(DeleteTask(taskId: task.id));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Task deleted')),
+                  );
+                },
+              ),
               onTap: () => _showEditDialog(context, task),
             ),
           );
